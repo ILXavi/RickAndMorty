@@ -13,7 +13,7 @@ class CharactersListViewController: UIViewController {
     //    MARK: - Outlets
     
     @IBOutlet weak var tbvAllCharacters: UITableView!
-    
+
     //    MARK: - Properties
     private var characters: [Result]?
     private var viewModel: CharactersListViewModel?
@@ -21,6 +21,18 @@ class CharactersListViewController: UIViewController {
     
     
     //    MARK: - Object lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +52,9 @@ class CharactersListViewController: UIViewController {
         tbvAllCharacters.delegate = self
         tbvAllCharacters.dataSource = self
         tbvAllCharacters.register(UINib(nibName: CharacterTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: CharacterTableViewCell.identifier)
+        tbvAllCharacters.register(UINib(nibName: HeaderTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.identifier)
+        tbvAllCharacters.separatorStyle = .none
+        tbvAllCharacters.showsVerticalScrollIndicator = false
     }
     
     func reloadCharacterTable() {
@@ -67,24 +82,46 @@ class CharactersListViewController: UIViewController {
 
 extension CharactersListViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        characters?.count ?? 0
+        if section == 0 {
+            return 1
+        } else {
+          return characters?.count ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier) as? CharacterTableViewCell else{
+        
+        if indexPath.section == 0 {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: HeaderTableViewCell.identifier) as? HeaderTableViewCell else{
+                
+                return UITableViewCell ()
+            }
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.identifier) as? CharacterTableViewCell else{
+                return UITableViewCell ()
+            }
+            if let character = characters?[indexPath.row] {
+                print(indexPath.row)
+                cell.config(character: character)
+                return cell
+            }
             return UITableViewCell ()
         }
-        if let character = characters?[indexPath.row] {
-            print(indexPath.row)
-            cell.config(character: character)
-            return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 200
+            
+        } else {
+            return 140
         }
-        return UITableViewCell ()
     }
 }
 

@@ -12,6 +12,7 @@ class CharacterTableViewCell: UITableViewCell {
     // MARK: - Outlets
     
     @IBOutlet weak var lbName: UILabel!
+    @IBOutlet weak var imgBackground: UIImageView!
     
     // MARK: - Properties
     
@@ -26,12 +27,16 @@ class CharacterTableViewCell: UITableViewCell {
     // MARK: - Private methods
     
     private func setup() {
-        lbName.textColor = .red
+        selectionStyle = .none
+        lbName.font = UIFont.rym30
+        imgBackground.image = UIImage(named: "pickle")
+        imgBackground.contentMode = .scaleToFill
     }
     
     // MARK: - Public methods
     
     func config(character: Result) {
+//        lbName.text = "RICK"
         lbName.text = character.name
     }
 }

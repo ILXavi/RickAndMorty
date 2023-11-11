@@ -24,6 +24,10 @@
 		47E579082AFFD438006E6C6C /* BaseApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E579072AFFD438006E6C6C /* BaseApiClient.swift */; };
 		47E5790A2AFFD471006E6C6C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E579092AFFD471006E6C6C /* BaseViewModel.swift */; };
 		47E5790C2AFFD50E006E6C6C /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5790B2AFFD50E006E6C6C /* Endpoints.swift */; };
+		47E579132AFFEA91006E6C6C /* UIFont+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E579122AFFEA91006E6C6C /* UIFont+Style.swift */; };
+		47E5791F2B0010D8006E6C6C /* Creepster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47E5791E2B0010D8006E6C6C /* Creepster-Regular.ttf */; };
+		47E579222B00161B006E6C6C /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E579202B00161B006E6C6C /* HeaderTableViewCell.swift */; };
+		47E579232B00161B006E6C6C /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E579212B00161B006E6C6C /* HeaderTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		47E579072AFFD438006E6C6C /* BaseApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiClient.swift; sourceTree = "<group>"; };
 		47E579092AFFD471006E6C6C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		47E5790B2AFFD50E006E6C6C /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		47E579122AFFEA91006E6C6C /* UIFont+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Style.swift"; sourceTree = "<group>"; };
+		47E5791E2B0010D8006E6C6C /* Creepster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Creepster-Regular.ttf"; sourceTree = "<group>"; };
+		47E579202B00161B006E6C6C /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		47E579212B00161B006E6C6C /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 		47E578C62AFD1C03006E6C6C /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				47E579112AFFEA0F006E6C6C /* Extensions */,
 				47E578EC2AFD3363006E6C6C /* Base */,
 				47E578DD2AFD1C6A006E6C6C /* Resources */,
 				47E578DB2AFD1C44006E6C6C /* Code */,
@@ -108,6 +117,7 @@
 		47E578DD2AFD1C6A006E6C6C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				47E5790E2AFFE85A006E6C6C /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -151,6 +161,8 @@
 			children = (
 				47E579032AFE95E8006E6C6C /* CharacterTableViewCell.swift */,
 				47E579042AFE95E9006E6C6C /* CharacterTableViewCell.xib */,
+				47E579202B00161B006E6C6C /* HeaderTableViewCell.swift */,
+				47E579212B00161B006E6C6C /* HeaderTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -162,6 +174,22 @@
 				47E578F02AFD8767006E6C6C /* CharactersListView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		47E5790E2AFFE85A006E6C6C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				47E5791E2B0010D8006E6C6C /* Creepster-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		47E579112AFFEA0F006E6C6C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				47E579122AFFEA91006E6C6C /* UIFont+Style.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +253,8 @@
 				47E578F22AFD8767006E6C6C /* CharactersListView.xib in Resources */,
 				47E578D42AFD1C05006E6C6C /* LaunchScreen.storyboard in Resources */,
 				47E578D12AFD1C05006E6C6C /* Assets.xcassets in Resources */,
+				47E5791F2B0010D8006E6C6C /* Creepster-Regular.ttf in Resources */,
+				47E579232B00161B006E6C6C /* HeaderTableViewCell.xib in Resources */,
 				47E579062AFE95E9006E6C6C /* CharacterTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,9 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				47E578F12AFD8767006E6C6C /* CharactersListViewController.swift in Sources */,
+				47E579222B00161B006E6C6C /* HeaderTableViewCell.swift in Sources */,
 				47E578C82AFD1C03006E6C6C /* AppDelegate.swift in Sources */,
 				47E5790C2AFFD50E006E6C6C /* Endpoints.swift in Sources */,
 				47E579082AFFD438006E6C6C /* BaseApiClient.swift in Sources */,
+				47E579132AFFEA91006E6C6C /* UIFont+Style.swift in Sources */,
 				47E578E22AFD209C006E6C6C /* CharactersListViewModel.swift in Sources */,
 				47E578EB2AFD3038006E6C6C /* CharactersListWireframe.swift in Sources */,
 				47E5790A2AFFD471006E6C6C /* BaseViewModel.swift in Sources */,

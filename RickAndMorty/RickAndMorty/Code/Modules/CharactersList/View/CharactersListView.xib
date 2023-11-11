@@ -20,20 +20,20 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bKW-Lf-RTl">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bKW-Lf-RTl">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="bKW-Lf-RTl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="18x-pI-drT"/>
                 <constraint firstItem="bKW-Lf-RTl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="STN-a1-7TI"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bKW-Lf-RTl" secondAttribute="bottom" id="Tci-up-akE"/>
-                <constraint firstItem="bKW-Lf-RTl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="bJ2-9t-78t"/>
+                <constraint firstAttribute="bottom" secondItem="bKW-Lf-RTl" secondAttribute="bottom" id="Tci-up-akE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bKW-Lf-RTl" secondAttribute="trailing" id="yoF-9S-bhP"/>
             </constraints>
-            <point key="canvasLocation" x="4" y="21"/>
+            <point key="canvasLocation" x="3.8167938931297707" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
