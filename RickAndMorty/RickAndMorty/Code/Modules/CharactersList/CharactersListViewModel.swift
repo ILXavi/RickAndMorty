@@ -14,12 +14,16 @@ class CharactersListViewModel: BaseViewModel {
     
     @Published var characters: [Result]?
     private var dataManager: CharacterListDataManager
+    private var characterDetailWireframe: CharacterDetailWireframe
+    
+    // MARK: - Object lifecycle
+    
+    init(dataManager: CharacterListDataManager, characterDetailWireframe: CharacterDetailWireframe) {
+        self.dataManager = dataManager
+        self.characterDetailWireframe = characterDetailWireframe
+    }
     
     // MARK: - Public Methods
-    
-    init(dataManager: CharacterListDataManager) {
-        self.dataManager = dataManager
-    }
     
     func getAllCharactersList() {
         dataManager.getCharactersList()
@@ -31,5 +35,9 @@ class CharactersListViewModel: BaseViewModel {
                 self?.characters = charactersList
             }.store(in: &cancellables)
         
+    }
+    
+    func goToCharacterDetail (character: Result) {
+        characterDetailWireframe.present(character: character)
     }
 }

@@ -14,6 +14,7 @@ enum Font {
     static let fontTextSizeM: CGFloat = 15
     static let fontTextSizeL: CGFloat = 20
     static let fontTextSizeXL: CGFloat = 30
+    static let fontTextSizeXXL: CGFloat = 50
 }
 
 extension UIFont {
@@ -31,5 +32,9 @@ extension UIFont {
     
     static var rym30: UIFont {
         return UIFont(name: Font.rym, size: Font.fontTextSizeXL) ?? UIFont.systemFont(ofSize: Font.fontTextSizeXL)
+    }
+    
+    static var rym50: UIFont {
+        return UIFont(name: Font.rym, size: Font.fontTextSizeXXL) ?? UIFont.systemFont(ofSize: Font.fontTextSizeXXL)
     }
 }

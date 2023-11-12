@@ -10,11 +10,19 @@ import Combine
 
 class CharactersListViewController: UIViewController {
     
+    enum Constats {
+        
+        static let headerWidth: CGFloat = 200
+        static let characterCellWidth: CGFloat = 140
+        
+    }
+    
     //    MARK: - Outlets
     
     @IBOutlet weak var tbvAllCharacters: UITableView!
 
     //    MARK: - Properties
+    
     private var characters: [Result]?
     private var viewModel: CharactersListViewModel?
     var cancellables: Set<AnyCancellable> = []
@@ -117,11 +125,19 @@ extension CharactersListViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 200
+            return Constats.headerWidth
             
         } else {
-            return 140
+            return Constats.characterCellWidth
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let character = characters?[indexPath.row] {
+            viewModel?.goToCharacterDetail(character: character)
+        }
+
     }
 }
 
