@@ -25,6 +25,11 @@ class CharactersListViewController: UIViewController {
     private var viewModel: CharactersListViewModel?
     var cancellables: Set<AnyCancellable> = []
     
+    private lazy var refresh = PullToRefresh(tableView: tbvAllCharacters) { [weak self] in
+        guard let self = self else { return }
+        self.viewModel?.getAllCharactersList()
+    }
+    
     //    MARK: - Object lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,7 +90,7 @@ class CharactersListViewController: UIViewController {
         
         viewModel?.getState().sink(receiveValue: { [weak self] characters in
             guard let self = self else { return }
-            
+            self.refresh.endRefresh()
             switch characters {
             case .loading:
                 return
@@ -127,7 +132,6 @@ extension CharactersListViewController: UITableViewDataSource, UITableViewDelega
                 return UITableViewCell ()
             }
             if let character = characters?[indexPath.row] {
-                print(indexPath.row)
                 cell.config(character: character)
                 return cell
             }

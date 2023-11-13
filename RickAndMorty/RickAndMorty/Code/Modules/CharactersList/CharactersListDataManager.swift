@@ -25,7 +25,6 @@ class CharacterListDataManager {
             .tryMap { $0.results }
             .eraseToAnyPublisher()
     }
-    
 }
 
 
