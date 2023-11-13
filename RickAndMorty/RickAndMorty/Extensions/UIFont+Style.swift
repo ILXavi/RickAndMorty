@@ -18,6 +18,7 @@ enum Font {
 }
 
 extension UIFont {
+    
     static var rym14: UIFont {
         return UIFont(name: Font.rym, size: Font.fontTextSizeS) ?? UIFont.systemFont(ofSize: Font.fontTextSizeS)
     }

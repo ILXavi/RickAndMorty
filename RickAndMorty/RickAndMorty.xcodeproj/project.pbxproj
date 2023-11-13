@@ -35,6 +35,7 @@
 		47E579392B0135A1006E6C6C /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E579372B0135A1006E6C6C /* CharacterDetailViewController.swift */; };
 		47E5793A2B0135A1006E6C6C /* CharacterDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E579382B0135A1006E6C6C /* CharacterDetail.xib */; };
 		47E5793C2B0240B8006E6C6C /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5793B2B0240B7006E6C6C /* UIImageView.swift */; };
+		47E5793E2B024A07006E6C6C /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E5793D2B024A07006E6C6C /* UINavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		47E579372B0135A1006E6C6C /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		47E579382B0135A1006E6C6C /* CharacterDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterDetail.xib; sourceTree = "<group>"; };
 		47E5793B2B0240B7006E6C6C /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		47E5793D2B024A07006E6C6C /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			children = (
 				47E579122AFFEA91006E6C6C /* UIFont+Style.swift */,
 				47E5793B2B0240B7006E6C6C /* UIImageView.swift */,
+				47E5793D2B024A07006E6C6C /* UINavigationBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				47E5793C2B0240B8006E6C6C /* UIImageView.swift in Sources */,
 				47E579322B012932006E6C6C /* CharacterDetailDataManager.swift in Sources */,
 				47E5790C2AFFD50E006E6C6C /* Endpoints.swift in Sources */,
+				47E5793E2B024A07006E6C6C /* UINavigationBar.swift in Sources */,
 				47E579082AFFD438006E6C6C /* BaseApiClient.swift in Sources */,
 				47E579132AFFEA91006E6C6C /* UIFont+Style.swift in Sources */,
 				47E579302B01284B006E6C6C /* CharacterDetailWireframe.swift in Sources */,
