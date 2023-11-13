@@ -18,8 +18,5 @@ class CharacterDetailViewModel: BaseViewModel {
     init(dataManager: CharacterDetailDataManager) {
         self.dataManager = dataManager
     }
-    
-    //    MARK: - Public Methods
-    
 
 }
