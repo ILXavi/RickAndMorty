@@ -44,6 +44,4 @@ class CharactersListWireframe: BaseWireframe {
     func present() {
         super.present(viewController: viewController)
     }
-    
-
 }

@@ -19,7 +19,7 @@ class CharacterListDataManager {
     }
     
     // MARK: - Public Methods
-        
+    
     func getCharactersList() -> AnyPublisher<[Result], Error> {
         apiClient.getCharactersList(endpoint: Endpoints.allCharactersURL)
             .tryMap { $0.results }

@@ -11,34 +11,31 @@ import Combine
 class CharactersListViewController: UIViewController {
     
     enum Constats {
-        
         static let headerWidth: CGFloat = 200
         static let characterCellWidth: CGFloat = 140
-        
     }
     
     //    MARK: - Outlets
     
     @IBOutlet weak var tbvAllCharacters: UITableView!
-
+    
     //    MARK: - Properties
     
     private var characters: [Result]?
     private var viewModel: CharactersListViewModel?
     var cancellables: Set<AnyCancellable> = []
     
-    
     //    MARK: - Object lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-
+        
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
@@ -69,6 +66,15 @@ class CharactersListViewController: UIViewController {
         self.tbvAllCharacters.reloadData()
     }
     
+    func showAlert(error: Error) {
+        let alertController = UIAlertController(title: "Error!", message: error.localizedDescription, preferredStyle: .alert)
+        let oKAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(oKAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     //    MARK: - Private Methods
     
     private func makeCalls() {
@@ -76,16 +82,22 @@ class CharactersListViewController: UIViewController {
     }
     
     private func responseViewModel() {
-        viewModel?.$characters.sink(receiveValue: { [weak self] characters in
+        
+        viewModel?.getState().sink(receiveValue: { [weak self] characters in
             guard let self = self else { return }
-            if let response = characters {
-                self.characters = response
-                self.reloadCharacterTable()
+            
+            switch characters {
+            case .loading:
+                return
+            case .success(let characters):
+                self.characters = characters
+                self.tbvAllCharacters.reloadData()
+            case .error(let error):
+                self.showAlert(error: error)
+                break
             }
         }).store(in: &cancellables)
     }
-    
-    
 }
 
 extension CharactersListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -97,7 +109,7 @@ extension CharactersListViewController: UITableViewDataSource, UITableViewDelega
         if section == 0 {
             return 1
         } else {
-          return characters?.count ?? 0
+            return characters?.count ?? 0
         }
     }
     
@@ -137,7 +149,6 @@ extension CharactersListViewController: UITableViewDataSource, UITableViewDelega
         if let character = characters?[indexPath.row] {
             viewModel?.goToCharacterDetail(character: character)
         }
-
     }
 }
 

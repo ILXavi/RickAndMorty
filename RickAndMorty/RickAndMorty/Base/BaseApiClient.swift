@@ -82,11 +82,11 @@ extension NetworkError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidURL:
-            return NSLocalizedString("Invalid URL", comment: "")
+            return NSLocalizedString("Nos perdimos por el camino, intentalo más tarde.", comment: "")
         case .responseError:
-            return NSLocalizedString("Unexpected status code", comment: "")
+            return NSLocalizedString("Ups! no conseguimos conectar, intenta deslizar hacia abajo la pantalla.", comment: "")
         case .unknown:
-            return NSLocalizedString("Unknown error", comment: "")
+            return NSLocalizedString("Ha pasado algo, intentalo más tarde.", comment: "")
         }
     }
 }

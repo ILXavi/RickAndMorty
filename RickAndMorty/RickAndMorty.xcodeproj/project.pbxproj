@@ -15,7 +15,6 @@
 		47E578E62AFD20D4006E6C6C /* CharactersListAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E578E52AFD20D4006E6C6C /* CharactersListAPIClient.swift */; };
 		47E578E92AFD2B9C006E6C6C /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E578E82AFD2B9C006E6C6C /* Characters.swift */; };
 		47E578EB2AFD3038006E6C6C /* CharactersListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E578EA2AFD3038006E6C6C /* CharactersListWireframe.swift */; };
-		47E578EE2AFD3373006E6C6C /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E578ED2AFD3373006E6C6C /* BaseError.swift */; };
 		47E578F12AFD8767006E6C6C /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E578EF2AFD8767006E6C6C /* CharactersListViewController.swift */; };
 		47E578F22AFD8767006E6C6C /* CharactersListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47E578F02AFD8767006E6C6C /* CharactersListView.xib */; };
 		47E578F42AFE4DF9006E6C6C /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E578F32AFE4DF9006E6C6C /* BaseWireframe.swift */; };
@@ -49,7 +48,6 @@
 		47E578E52AFD20D4006E6C6C /* CharactersListAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListAPIClient.swift; sourceTree = "<group>"; };
 		47E578E82AFD2B9C006E6C6C /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		47E578EA2AFD3038006E6C6C /* CharactersListWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListWireframe.swift; sourceTree = "<group>"; };
-		47E578ED2AFD3373006E6C6C /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		47E578EF2AFD8767006E6C6C /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		47E578F02AFD8767006E6C6C /* CharactersListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersListView.xib; sourceTree = "<group>"; };
 		47E578F32AFE4DF9006E6C6C /* BaseWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				47E579072AFFD438006E6C6C /* BaseApiClient.swift */,
 				47E579092AFFD471006E6C6C /* BaseViewModel.swift */,
 				47E578F32AFE4DF9006E6C6C /* BaseWireframe.swift */,
-				47E578ED2AFD3373006E6C6C /* BaseError.swift */,
 				47E5790B2AFFD50E006E6C6C /* Endpoints.swift */,
 			);
 			path = Base;
@@ -319,7 +316,6 @@
 				47E578E42AFD20C5006E6C6C /* CharactersListDataManager.swift in Sources */,
 				47E578E62AFD20D4006E6C6C /* CharactersListAPIClient.swift in Sources */,
 				47E579052AFE95E9006E6C6C /* CharacterTableViewCell.swift in Sources */,
-				47E578EE2AFD3373006E6C6C /* BaseError.swift in Sources */,
 				47E578F42AFE4DF9006E6C6C /* BaseWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

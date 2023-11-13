@@ -12,7 +12,7 @@ class CharactersListViewModel: BaseViewModel {
     
     // MARK: - Properties
     
-    @Published var characters: [Result]?
+    private let state: CurrentValueSubject<DataState, Never> = .init(.loading)
     private var dataManager: CharacterListDataManager
     private var characterDetailWireframe: CharacterDetailWireframe
     
@@ -29,15 +29,27 @@ class CharactersListViewModel: BaseViewModel {
         dataManager.getCharactersList()
             .sink { completion in
                 if case .failure(let error) = completion {
-                    print(error)
+                    self.state.send(.error(error))
                 }
             } receiveValue: { [weak self] charactersList in
-                self?.characters = charactersList
+                self?.state.send(.success(charactersList))
             }.store(in: &cancellables)
         
     }
     
     func goToCharacterDetail (character: Result) {
         characterDetailWireframe.present(character: character)
+    }
+    
+    func getState() -> AnyPublisher<DataState, Never> {
+        return state.eraseToAnyPublisher()
+    }
+    
+    // MARK: - States
+    
+    enum DataState {
+        case loading
+        case success([Result])
+        case error(Error)
     }
 }

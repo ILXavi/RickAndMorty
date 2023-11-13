@@ -15,5 +15,4 @@ class CharacterListAPIClient: BaseAPIClient {
     func getCharactersList(endpoint: String) -> Future<Characters, Error> {
         makeRequest(endpoint: endpoint, type: Characters.self)
     }
-    
 }

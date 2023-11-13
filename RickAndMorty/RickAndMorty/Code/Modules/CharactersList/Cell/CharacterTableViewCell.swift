@@ -36,7 +36,6 @@ class CharacterTableViewCell: UITableViewCell {
     // MARK: - Public methods
     
     func config(character: Result) {
-//        lbName.text = "RICK"
         lbName.text = character.name
     }
 }
