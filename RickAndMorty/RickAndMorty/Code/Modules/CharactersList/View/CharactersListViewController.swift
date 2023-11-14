@@ -18,6 +18,7 @@ class CharactersListViewController: UIViewController {
     //    MARK: - Outlets
     
     @IBOutlet weak var tbvAllCharacters: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     //    MARK: - Properties
     
@@ -59,6 +60,7 @@ class CharactersListViewController: UIViewController {
     }
     
     func configView () {
+        showLoadingIndicator()
         tbvAllCharacters.delegate = self
         tbvAllCharacters.dataSource = self
         tbvAllCharacters.register(UINib(nibName: CharacterTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: CharacterTableViewCell.identifier)
@@ -80,6 +82,16 @@ class CharactersListViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    func showLoadingIndicator() {
+        loadingIndicator.startAnimating()
+        loadingIndicator.isHidden = false
+    }
+    
+    func hideLoadingIndicator() {
+        loadingIndicator.stopAnimating()
+        loadingIndicator.isHidden = true
+    }
+    
     //    MARK: - Private Methods
     
     private func makeCalls() {
@@ -96,6 +108,7 @@ class CharactersListViewController: UIViewController {
                 return
             case .success(let characters):
                 self.characters = characters
+                self.hideLoadingIndicator()
                 self.tbvAllCharacters.reloadData()
             case .error(let error):
                 self.showAlert(error: error)
@@ -140,12 +153,7 @@ extension CharactersListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return Constats.headerWidth
-            
-        } else {
-            return Constats.characterCellWidth
-        }
+        indexPath.section == 0 ? Constats.headerWidth : Constats.characterCellWidth
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

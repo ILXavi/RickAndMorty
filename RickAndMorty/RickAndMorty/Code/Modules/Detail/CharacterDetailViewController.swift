@@ -20,6 +20,7 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var lbStatus: UILabel!
     @IBOutlet weak var lbSpecie: UILabel!
     @IBOutlet weak var lbGender: UILabel!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     //    MARK: - Properties
     
@@ -40,10 +41,21 @@ class CharacterDetailViewController: UIViewController {
         self.viewModel = viewModel
     }
     
+    func showLoadingIndicator() {
+        loadingIndicator.startAnimating()
+        loadingIndicator.isHidden = false
+    }
+    
+    func hideLoadingIndicator() {
+        loadingIndicator.stopAnimating()
+        loadingIndicator.isHidden = true
+    }
+    
     //    MARK: - Private Methods
     
     private func configView() {
     
+        showLoadingIndicator()
         let backgroundImage = UIImage(named: "space")
         let backgroundImageView = UIImageView(image: backgroundImage)
         backgroundImageView.contentMode = .scaleAspectFill
@@ -51,6 +63,7 @@ class CharacterDetailViewController: UIViewController {
         view.sendSubviewToBack(backgroundImageView)
         
         if let imageURL = URL(string: character?.image ?? "") {
+            hideLoadingIndicator()
             imgAvatar.load(url: imageURL)
         }
         imgAvatar.layer.cornerRadius = Constants.imageCornerRadius
